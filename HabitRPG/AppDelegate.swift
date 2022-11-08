@@ -40,11 +40,7 @@ class HabiticaAppDelegate: UIResponder, MessagingDelegate, UIApplicationDelegate
     private let configRepository = ConfigRepository.shared
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-      #if targetEnvironment(simulator)
-      UserDefaults.standard.set("localhost", forKey: "chosenServer")
-      #else
-      UserDefaults.standard.set("production", forKey: "chosenServer")
-      #endif
+        UserDefaults.standard.set("production", forKey: "chosenServer")
       
         Measurements.start(identifier: "didFinishLaunchingWithOptions")
         Measurements.start(identifier: "task list loaded")
